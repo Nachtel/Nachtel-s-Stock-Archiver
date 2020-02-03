@@ -33,6 +33,9 @@ class stock_history:
 
 #First item of each table of each page always has the value 3, so the default value of l_num is 3. After all info is recorded from a listing, l_num increases by 1, and thus continues on to the next listing; if the next number is a blank inbetween, then it simply increases l_num again until it finds the next listing. If it reports the same NoSuchElementException 4 times, then the program assumes there are no more listings, and decides
 row_dict = {}
+
+identity = []
+
 def scan(cycles=None):
     page_num = 1
     l_num = 3
@@ -50,9 +53,9 @@ def scan(cycles=None):
     password = driver.find_element_by_xpath('//*[@id="ctl00_CP1_LoginView1_Login1_Password"]')
     password.send_keys('mood')
     password.send_keys(Keys.ENTER)
-
+    
     time.sleep(5)
-
+    print("don't repeat please")
     driver.get("https://www.advfn.com/nyse/newyorkstockexchange.asp?companies=A")
     if cycles is not None:
         for cycle in range(cycles):
@@ -111,6 +114,7 @@ def scan(cycles=None):
                                 r_volume = history_data.text
                         print("------------------------------")
                         row_dict["{}, row_{}".format(listing_name, row_num)] = stock_history(listing_name, r_date, r_close, r_change, r_changepercent, r_opxn, r_high, r_low, r_volume)
+                        identity.append(listing_name)
                         row_num +=1
                     except NoSuchElementException:
                         print("There is no data for this stock")
@@ -162,6 +166,7 @@ def scan(cycles=None):
                     time.sleep(2)
                     try:
                         #testing to see if element is in the page; if not then the element at the XPATH is not the history data and will be fixed accordingly.
+                        time.sleep(2)
                         testelement = driver.find_element_by_xpath("/html/body/div[9]/div[4]/div[2]/div[1]/div[1]/div/div[2]/table/tbody/tr[2]/td[2]/b")
                         default_historical = 4
                         break
@@ -170,6 +175,7 @@ def scan(cycles=None):
                         if default_historical <=  9:
 
                             print("Cannot find the Historical tab in specified area; trying again in next")
+                            
                             default_historical += 1
                             driver.back()
                         
@@ -203,8 +209,8 @@ def scan(cycles=None):
                                 r_volume = history_data.text
                         print("------------------------------")
                         row_dict["{}, row_{}".format(listing_name, row_num)] = stock_history(listing_name, r_date, r_close, r_change, r_changepercent, r_opxn, r_high, r_low, r_volume)
+                        identity["{}_{}".format(listing_name, row_num)] = (listing_name, row_num)
                         row_num +=1
-                        return listing, row_num
                     except NoSuchElementException:
                         print("There is no data for this stock")
                         break
@@ -240,4 +246,4 @@ def scan(cycles=None):
                     error_counter = 0
                     page_num +=1
 
-listing_name, row_num = scan
+
