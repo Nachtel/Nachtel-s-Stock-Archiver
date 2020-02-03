@@ -1,0 +1,72 @@
+XPATH to page A of NYSE listings:
+
+/html/body/table[2]/tbody/tr[2]/td[2]/table/tbody/tr/td/div/a[1]
+
+XPATH to page B of NYSE listings:
+
+/html/body/table[2]/tbody/tr[2]/td[2]/table/tbody/tr/td/div/a[2]
+
+
+more financial information in profile:
+/html/body/div[9]/div[5]/div[2]/div[1]/p/a
+
+Historical Prices in profile:
+
+/html/body/div[6]/ul/li[7]/a
+
+
+Financial info in profile:
+
+/html/body/div[6]/ul/li[7]/a
+
+
+Historical Prices Extra:
+
+Column 1 Row 1:
+
+/html/body/div[9]/div[4]/div[2]/div[1]/div[3]/table/tbody/tr[2]/td[1]
+
+Column 2 Row 1:
+
+/html/body/div[9]/div[4]/div[2]/div[1]/div[3]/table/tbody/tr[2]/td[2]
+
+(8 Columns in total)
+
+Column 1 Row 2:
+
+/html/body/div[9]/div[4]/div[2]/div[1]/div[3]/table/tbody/tr[3]/td[1]
+
+"See More Historical Prices >>":
+
+/html/body/div[7]/u/li[3]/a
+
+
+Within this^:
+
+Column 1 Row 1:
+
+/html/body/div[9]/div[4]/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[1]
+
+Column 2 Row 1:
+
+/html/body/div[9]/div[4]/div[2]/div[1]/div[3]/table/tbody/tr[2]/td[2]
+
+----------------
+Example header text from original link:
+
+/html/body/table[2]/tbody/tr[2]/table/tbody/tr/td/h1
+
+
+website login page:
+
+https://investorshub.advfn.com/secure/login.aspx
+
+bot email: beststockarchiverevah@gmai.com
+bot password: isth15str0nGeNough
+
+username xpath:
+//*[@id="ctl00_CP1_LoginView1_Login1_UserName"]
+password xpath:
+//*[@id="ctl00_CP1_LoginView1_Login1_Password"]
+
+there is an occasional extra "financial" tab in some stock profiles
