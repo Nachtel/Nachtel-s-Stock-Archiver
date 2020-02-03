@@ -1,3 +1,5 @@
+LICENSE: This is an open-source, so use in whatever project you wish so as you don't re-distribute it claiming it to be your own.
+
 # Nachtel-s-Stock-Archiver
 IMPORTANT: For now Only import archive.py file (from archive import *) as it imports the scanner within the script.
 
